@@ -2,15 +2,17 @@
 import atheris
 import sys
 
-from lark import UnexpectedCharacters, UnexpectedToken
 
 import fuzz_helpers
 
 
-with atheris.instrument_imports():
+
+with atheris.instrument_imports(include=['dissect.cobaltstrike']):
     from dissect.cobaltstrike.beacon import BeaconConfig
-    from dissect.cobaltstrike.c2profile import C2Profile
-    from dissect.cobaltstrike import xordecode
+
+from dissect.cobaltstrike.c2profile import C2Profile
+from dissect.cobaltstrike import xordecode
+from lark import UnexpectedCharacters, UnexpectedToken
 
 def TestOneInput(data):
     fdp = fuzz_helpers.EnhancedFuzzedDataProvider(data)
@@ -23,6 +25,7 @@ def TestOneInput(data):
         elif choice == 2:
             with fdp.ConsumeMemoryFile() as f:
                 xordecode.XorEncodedFile(f)
+
     except (ValueError, UnexpectedCharacters, UnexpectedToken):
         return -1
 def main():
