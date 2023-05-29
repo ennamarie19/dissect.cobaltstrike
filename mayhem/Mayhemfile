@@ -1,7 +1,5 @@
-project: dissect.cobaltstrike
+project: dissect-cobaltstrike
 target: fuzz-cs
-testsuite:
-    - file://mayhem/testsuite
 
 cmds:
   - cmd: /src/mayhem/fuzz_cs.py
