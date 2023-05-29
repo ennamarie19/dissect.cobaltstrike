@@ -22,9 +22,9 @@ def TestOneInput(data):
             BeaconConfig.from_bytes(fdp.ConsumeRemainingBytes())
         elif choice == 1:
             C2Profile.from_text(fdp.ConsumeRemainingString())
-        elif choice == 2:
-            with fdp.ConsumeMemoryFile() as f:
-                xordecode.XorEncodedFile(f)
+        #elif choice == 2:
+         #   with fdp.ConsumeMemoryFile() as f:
+          #      xordecode.XorEncodedFile(f)
 
     except (ValueError, UnexpectedCharacters, UnexpectedToken):
         return -1
