@@ -57,6 +57,6 @@ jobs:
         uses: ForAllSecure/mcode-action@v1
         with:
           mayhem-token: ${{ secrets.MAYHEM_TOKEN }}
-          args: --project dissect-cobaltstrike --image ${{ needs.build.outputs.image }} --file ${{ matrix.mayhemfile }} --duration 600
+          args: --image ${{ needs.build.outputs.image }} --project dissect-cobaltstrike --file ${{ matrix.mayhemfile }} --duration 600
           sarif-output: sarif
 
